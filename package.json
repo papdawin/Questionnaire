@@ -1,0 +1,22 @@
+{
+  "name": "questionnaire",
+  "version": "1.0.0",
+  "description": "Quiz application, to test yourself at various topics ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/papdawin/Questionnaire.git"
+  },
+  "keywords": [
+    "quiz","test","education"
+  ],
+  "author": "papdawin, fpatrik202, StroyeR1",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/papdawin/Questionnaire/issues"
+  },
+  "homepage": "https://github.com/papdawin/Questionnaire#readme"
+}

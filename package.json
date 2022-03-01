@@ -1,22 +1,24 @@
 {
-  "name": "questionnaire",
+  "name": "qstnr",
   "version": "1.0.0",
-  "description": "Quiz application, to test yourself at various topics ",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon index.js",
+    "start": "node index.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/papdawin/Questionnaire.git"
-  },
-  "keywords": [
-    "quiz","test","education"
-  ],
-  "author": "papdawin, fpatrik202, StroyeR1",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/papdawin/Questionnaire/issues"
-  },
-  "homepage": "https://github.com/papdawin/Questionnaire#readme"
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "ejs": "^3.1.6",
+    "express": "^4.17.3",
+    "express-session": "^1.17.2",
+    "mongoose": "^6.2.3",
+    "nodemon": "^2.0.15",
+    "passport": "^0.5.2",
+    "passport-local": "^1.0.0",
+    "uuid": "^8.3.2"
+  }
 }

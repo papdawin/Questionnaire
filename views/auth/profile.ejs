@@ -1,98 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Questionnaire</title>
-        <link rel="stylesheet" href="style.css" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-    </head>
-    <body>
-        <div>
-            <header>
-                <nav>
-                    <div class="innerNav">
-                        <img src="/icon.png" alt="Logo" />
-                        <p>Questionnaire</p>
-                    </div>
-                    <ul>
-                        <li>
-                            <a href="/">Main Page</a>
-                        </li>
-                        <li>
-                            <a href="/signup">Sign Up</a>
-                        </li>
-                        <li>
-                            <a href="/signin">Sign In</a>
-                        </li>
-                        <li>
-                            <a href="/">Register</a>
-                        </li>
-                    </ul>
-                </nav>
-            </header>
-            <div class="pageContent">
-                <div class="container">
-                    <h1>User Profile</h1>
-                    <hr />
-                    <% if ( user ) { %>
-                    <div>
-                        <div>
-                            <h3><%= user.firstName %> <%= user.lastName %></h3>
-                            <p><%= user.email %></p>
-                            <p><a href="/api/logout">Logout</a></p>
-                        </div>
-                    </div>
-                    <% } else { %>
-                    <h1>User not found</h1>
-                    <% } %>
-                </div>
-            </div>
-            <footer>
-                <div class="innerFooter">
-                    <div class="leftFooter">
-                        <div>
-                            <p class="footerTitle">Questionnaire</p>
-                            <p>©2022</p>
-                        </div>
-                        <p>
-                            A quiz website aimed at testing your abilities at
-                            various topics. That is, if you're up for a
-                            challenge!
-                        </p>
-                    </div>
-                    <div class="rightFooter">
-                        <ul>
-                            <li class="footerTitle">Navigation</li>
-                            <li><a href="">Main page</a></li>
-                            <li><a href="">Home</a></li>
-                            <li><a href="">Quiz list</a></li>
-                            <li><a href="">Upload quiz</a></li>
-                        </ul>
-                        <ul>
-                            <li class="footerTitle">Links</li>
-                            <li><a href="">About us</a></li>
-                            <li><a href="">Contact us</a></li>
-                            <li><a href="">Sitemap</a></li>
-                            <li><a href="">Impressum</a></li>
-                        </ul>
-                        <div class="outer">
-                            <p class="footerTitle">Follow us</p>
-                            <ul>
-                                <li><a href=""></a></li>
-                                <li><a href=""></a></li>
-                                <li><a href=""></a></li>
-                                <li><a href=""></a></li>
-                            </ul>
-                            <p class="footerTitle">Project source</p>
-                            <a href="https://github.com/papdawin/Questionnaire"
-                                >https://github.com/papdawin/Questionnaire</a
-                            >
-                        </div>
-                    </div>
-                </div>
-            </footer>
-        </div>
-    </body>
+	<%- include("../components/head/head.ejs") %>
+	<body>
+		<div>
+			<header><%- include("../components/header/header.ejs") %></header>
+			<div class="pageContent">
+				<div class="container">
+					<h1>User Profile</h1>
+					<hr />
+					<% if ( user ) { %>
+					<div>
+						<div>
+							<h3><%= user.firstName %> <%= user.lastName %></h3>
+							<p><%= user.email %></p>
+							<p><a href="/api/logout">Logout</a></p>
+						</div>
+					</div>
+					<% } else { %>
+					<h1>User not found</h1>
+					<% } %>
+				</div>
+			</div>
+			<footer><%- include("../components/footer/footer.ejs") %></footer>
+		</div>
+	</body>
 </html>

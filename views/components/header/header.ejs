@@ -1,0 +1,3 @@
+<% if(!user) { %> <%- include(".//guestHeader.ejs") %>
+<% } else if(user.admin){ %> <%- include(".//adminHeader.ejs") %>
+<% } else { %>  <%- include(".//userHeader.ejs") %> <% } %>

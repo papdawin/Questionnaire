@@ -8,15 +8,15 @@ const isLoggedIn = (req, res, next) => {
 };
 
 router.get("/", (req, res) => {
-    res.render("index.ejs");
+    res.render("index.ejs", { user: req.user });
 });
 
 router.get("/signup", (req, res) => {
-    res.render("auth/signup.ejs");
+    res.render("auth/signup.ejs", { user: req.user });
 });
 
 router.get("/signin", (req, res) => {
-    res.render("auth/signin.ejs");
+    res.render("auth/signin.ejs", { user: req.user });
 });
 
 router.get("/profile", isLoggedIn, (req, res) => {

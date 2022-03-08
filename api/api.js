@@ -42,4 +42,12 @@ router.post(
     })
 );
 
+router.post("/deleteuser", (req, res) => {
+    UserService.deleteUser();
+});
+
+router.post("/modifyuser", (req, res) => {
+    UserService.toggleAdmin();
+});
+
 module.exports = router;

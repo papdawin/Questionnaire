@@ -11,8 +11,8 @@ const addUser =
         return user.save();
     };
 
-const getUsers = (User) => () => {
-    return User.find({});
+const getUsers = (User) => async () => {
+    return await User.find();
 };
 
 const getUserByEmail =

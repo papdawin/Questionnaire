@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("../components/head/head.ejs") %>
+    <body>
+        <div>
+            <header><%- include("../components/header/header.ejs") %></header>
+            <div class="pageContent">
+                <% users.map(usr => { %>
+                <div><%= usr.firstName %> <%= usr.lastName %></div>
+                <% }) %>
+            </div>
+            <footer><%- include("../components/footer/footer.ejs") %></footer>
+        </div>
+    </body>
+</html>

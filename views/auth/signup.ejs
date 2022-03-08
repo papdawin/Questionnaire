@@ -1,19 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-	<%- include("../components/head/head.ejs") %>
-	<body>
-		<div>
-			<header><%- include("../components/header/header.ejs") %></header>
-			<div class="pageContent">
-				<form action="/api/signup" method="post">
-					<label>First Name:<input name="firstName" type="text" /></label>
-					<label>Last Name:<input name="lastName" type="text" /></label>
-					<label>Email:<input type="email" name="email" /></label>
-					<label>Password:<input type="password" name="password" /></label>
-					<input type="submit" value="Sign up" />
-				</form>
-			</div>
-			<footer><%- include("../components/footer/footer.ejs") %></footer>
-		</div>
-	</body>
+    <%- include("../components/head/head.ejs") %>
+    <body>
+        <div>
+            <header><%- include("../components/header/header.ejs") %></header>
+            <div class="pageContent">
+                <form action="/api/signup" method="post">
+                    <label
+                        >First Name:<input name="firstName" type="text"
+                    /></label>
+                    <label
+                        >Last Name:<input name="lastName" type="text"
+                    /></label>
+                    <label>Email:<input type="email" name="email" /></label>
+                    <label
+                        >Password:<input type="password" name="password"
+                    /></label>
+                    <input type="submit" value="Sign up" />
+                </form>
+            </div>
+            <footer><%- include("../components/footer/footer.ejs") %></footer>
+        </div>
+    </body>
 </html>

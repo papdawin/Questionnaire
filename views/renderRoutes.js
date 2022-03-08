@@ -4,7 +4,17 @@ const router = express.Router();
 const isLoggedIn = (req, res, next) => {
     req.user
         ? next()
-        : res.sendStatus(401).json({ msg: "Not authenticated >:c" });
+        : res
+              .status(401)
+              .render("auth/unauthenticated.ejs", { user: req.user });
+};
+
+const isAdmin = (req, res, next) => {
+    req.user.admin
+        ? next()
+        : res
+              .status(401)
+              .render("auth/unauthenticated.ejs", { user: req.user });
 };
 
 router.get("/", (req, res) => {
@@ -22,5 +32,12 @@ router.get("/signin", (req, res) => {
 router.get("/profile", isLoggedIn, (req, res) => {
     res.render("auth/profile.ejs", { user: req.user });
 });
+
+router.use(
+    "/moderation",
+    isLoggedIn,
+    isAdmin,
+    require("./moderation/moderationRoutes.js")
+);
 
 module.exports = router;

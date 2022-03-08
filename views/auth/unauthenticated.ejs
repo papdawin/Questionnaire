@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("../components/head/head.ejs") %>
+    <body>
+        <div>
+            <header><%- include("../components/header/header.ejs") %></header>
+            <div class="pageContent">
+                <% if(!user) { %>
+                <h1>Please log in</h1>
+                <% } else if(!user.admin){ %>
+                <h1>Not an admin</h1>
+                <% }%>
+            </div>
+            <footer><%- include("../components/footer/footer.ejs") %></footer>
+        </div>
+    </body>
+</html>

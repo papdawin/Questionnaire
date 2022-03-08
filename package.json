@@ -1,15 +1,25 @@
 {
-  "name": "qstnr",
+  "name": "questionnaire",
   "version": "1.0.0",
-  "description": "",
+  "description": "Quiz application, to test yourself at various topics ",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index.js",
     "start": "node index.js"
   },
-  "keywords": [],
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/papdawin/Questionnaire.git"
+  },
+  "keywords": [
+    "quiz","test","education"
+  ],
+  "author": "papdawin, fpatrik202, StroyeR1",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/papdawin/Questionnaire/issues"
+  },
+  "homepage": "https://github.com/papdawin/Questionnaire#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "dotenv": "^16.0.0",

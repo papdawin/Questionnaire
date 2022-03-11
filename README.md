@@ -32,7 +32,7 @@ _A quiz application to test yourself at various topics_
 -   Handling different user roles, prevention of unauthorized access
 -   Usage of cross-platform technologies
 
-## Used technologies
+#### Used technologies
 
 |                       Design                       |              Project implementation               |       Project management        |
 | :------------------------------------------------: | :-----------------------------------------------: | :-----------------------------: |

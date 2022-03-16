@@ -1,21 +1,6 @@
 const express = require("express");
 const router = express.Router();
-
-const isLoggedIn = (req, res, next) => {
-    req.user
-        ? next()
-        : res
-              .status(401)
-              .render("auth/unauthenticated.ejs", { user: req.user });
-};
-
-const isAdmin = (req, res, next) => {
-    req.user.admin
-        ? next()
-        : res
-              .status(401)
-              .render("auth/unauthenticated.ejs", { user: req.user });
-};
+const { isLoggedIn, isAdmin } = require("../src/middlewares/userCheck");
 
 router.get("/", (req, res) => {
     res.render("index.ejs", { user: req.user });

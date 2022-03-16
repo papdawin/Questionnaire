@@ -4,6 +4,7 @@ const uuid = require("uuid");
 const bcrypt = require("bcrypt");
 const { UserService } = require("../src/user");
 const passport = require("passport");
+const { isLoggedIn, isAdmin } = require("../src/middlewares/userCheck");
 
 router.get("/logout", (req, res) => {
     req.session.destroy(() => {
@@ -42,12 +43,22 @@ router.post(
     })
 );
 
-router.post("/deleteuser", (req, res) => {
-    UserService.deleteUser();
+router.post("/deleteuser", isLoggedIn, isAdmin, async (req, res) => {
+    try {
+        await UserService.deleteUserByEmail(req.body.email);
+        res.send({ msg: "OK :)" });
+    } catch (error) {
+        res.send({ msg: error });
+    }
 });
 
-router.post("/modifyuser", (req, res) => {
-    UserService.toggleAdmin();
+router.post("/modifyuser", isLoggedIn, isAdmin, async (req, res) => {
+    try {
+        await UserService.toggleAdminByEmail(req.body.email);
+        res.send({ msg: "OK :)" });
+    } catch (error) {
+        res.send({ msg: error });
+    }
 });
 
 module.exports = router;

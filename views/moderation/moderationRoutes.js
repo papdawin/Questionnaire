@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { UserService } = require("../../src/user");
+const { UserService, QuizService } = require("../../src/user");
 
 router.get("/user", async (req, res) => {
     const users = await UserService.getUsers();
@@ -11,8 +11,10 @@ router.get("/user", async (req, res) => {
 });
 
 router.get("/quiz", (req, res) => {
+    const quizzes = await QuizService.getQuizzes();
     res.render("moderation/quiz.ejs", {
         user: req.user,
+        quizzes,
     });
 });
 

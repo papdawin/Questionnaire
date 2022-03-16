@@ -1,0 +1,33 @@
+<script>
+    async function toggleAdmin(email) {
+        await fetch("/api/modifyuser", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email }),
+        }).then((res) => {
+            console.log(res.json());
+        }).catch(console.log)
+    }
+    async function deleteUser(email) {
+        await fetch("/api/deleteuser", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email }),
+        }).then((res) => {
+            console.log(res.json());
+        }).catch(console.log)
+        document.location.reload(true);
+    }
+</script>
+<% users.map((usr,index) => { %>
+
+<div id="<%= index+1 %>">
+    <div><%= usr.firstName %> <%= usr.lastName %></div>
+    <input
+        type="checkbox"
+        onchange="toggleAdmin('<%= usr.email %>')"
+        <% if(usr.admin){ %> checked <% } %> />
+    <button onclick="deleteUser('<%= usr.email %>')">Delete user</button>
+</div>
+
+<% }) %>

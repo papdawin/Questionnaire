@@ -21,7 +21,7 @@
 </script>
 <% users.map((usr,index) => { %>
 
-<div id="<%= index+1 %>">
+<div id="<%= index++ %>">
     <div><%= usr.firstName %> <%= usr.lastName %></div>
     <input
         type="checkbox"

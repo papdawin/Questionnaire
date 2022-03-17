@@ -1,9 +1,27 @@
 <script>
-    
+    async function deleteQuiz(id) {
+        await fetch("/api/deletequiz", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ id }),
+        }).then((res) => {
+            console.log(res.json());
+        }).catch(console.log)
+        document.location.reload(true);
+    }
 </script>
+<% quizzes.map((quiz,index) => { %>
+<div id="<%= index++ %>">
 
-<% //quizzes.map((quiz,index) => { %>
+    <div><%= quiz.id %> <%= quiz.name %> <%= quiz.difficulty %> <%= quiz.creator %>
+    <% quiz.questions.map((question,index) => { %>
 
-
-
+        <div id="<%= index++ %>">
+            <div><%= question.question %> <%= question.correctAnswer %></div>
+        </div>
+        
+        <% }) %> 
+    </div>
+    <button onclick="deleteQuiz('<%= quiz.id %>')">Delete quiz</button>
+</div>
 <% }) %>

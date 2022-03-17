@@ -10,7 +10,7 @@ router.get("/user", async (req, res) => {
     });
 });
 
-router.get("/quiz", (req, res) => {
+router.get("/quiz", async (req, res) => {
     const quizzes = await QuizService.getQuizzes();
     res.render("moderation/quiz.ejs", {
         user: req.user,

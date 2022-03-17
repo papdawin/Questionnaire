@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const uuid = require("uuid");
 const bcrypt = require("bcrypt");
-const { UserService } = require("../src/user");
+const { UserService, QuizService } = require("../src/user");
 const passport = require("passport");
 const { isLoggedIn, isAdmin } = require("../src/middlewares/userCheck");
 
@@ -16,7 +16,10 @@ router.get("/logout", (req, res) => {
 router.post("/signup", async (req, res) => {
     const { firstName, lastName, email, password } = req.body;
 
-    //implement passCheck
+    if (await UserService.getUserByEmail({ email }))
+        return res.redirect("/signup"); //err
+
+    if (password.length < 8) return res.redirect("/signup"); //err
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
@@ -31,7 +34,6 @@ router.post("/signup", async (req, res) => {
     } catch (e) {
         res.redirect("/signup");
     }
-
     res.redirect("/signin");
 });
 
@@ -55,6 +57,25 @@ router.post("/deleteuser", isLoggedIn, isAdmin, async (req, res) => {
 router.post("/modifyuser", isLoggedIn, isAdmin, async (req, res) => {
     try {
         await UserService.toggleAdminByEmail(req.body.email);
+        res.send({ msg: "OK :)" });
+    } catch (error) {
+        res.send({ msg: error });
+    }
+});
+
+router.post("/quizsubmit", isLoggedIn, async (req, res) => {
+    req.body.id = uuid.v4();
+    try {
+        await QuizService.addQuiz(req.body);
+        res.send({ msg: "OK :)" });
+    } catch (error) {
+        res.send({ msg: error });
+    }
+});
+
+router.post("/deletequiz", async (req, res) => {
+    try {
+        await QuizService.deleteQuiz(req.body.id);
         res.send({ msg: "OK :)" });
     } catch (error) {
         res.send({ msg: error });

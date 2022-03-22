@@ -1,0 +1,19 @@
+<script>
+    function renderQuestions() {
+        let field = "";
+        JSON.parse(window.localStorage.quizQuestions).map((item, index) => {
+            field += `<h3>Q: ${item.question}</h3>
+                    <h4 style="color: greenyellow;">A: ${item.correct}</h4>`;
+        });
+
+        document.querySelector("#questions").innerHTML = field;
+    }
+</script>
+<div>
+    <h4 style="color: greenyellow"></h4>
+    <h3>Submitted questions:</h3>
+    <div id="questions"></div>
+</div>
+<script>
+    renderQuestions();
+</script>

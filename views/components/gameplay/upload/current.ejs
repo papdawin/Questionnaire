@@ -1,0 +1,39 @@
+<script>
+    function addAnswerBox() {
+        document
+            .querySelector("#incorrect")
+            .insertAdjacentHTML(
+                "afterend",
+                `<label>Incorrect answer: <input type="text" id="incorrect" /></label>`
+            );
+    }
+    function addQuestion() {
+        if (!window.localStorage.quizQuestions)
+            window.localStorage.quizQuestions = JSON.stringify([]);
+
+        const arr = JSON.parse(window.localStorage.quizQuestions);
+        let incorrectArr = [];
+        document.querySelectorAll("#incorrect").forEach((tag) => {
+            incorrectArr.push(tag.value);
+        });
+
+        const question = {
+            question: document.querySelector("#question").value,
+            correct: document.querySelector("#correct").value,
+            incorrect: [...incorrectArr],
+        };
+
+        arr.push(question);
+
+        window.localStorage.setItem("quizQuestions", JSON.stringify(arr));
+
+        renderQuestions();
+    }
+</script>
+<div>
+    <label>Question: <input type="text" id="question" /></label>
+    <label>Correct answer: <input type="text" id="correct" /></label>
+    <label>Incorrect answer: <input type="text" id="incorrect" /></label>
+    <button onclick="addAnswerBox()">Add another answer option</button>
+    <button onclick="addQuestion()">Submit question</button>
+</div>

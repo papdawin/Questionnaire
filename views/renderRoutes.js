@@ -25,4 +25,6 @@ router.use(
     require("./moderation/moderationRoutes.js")
 );
 
+router.use("/", require("./gameplay/gameplayRoutes.js"));
+
 module.exports = router;

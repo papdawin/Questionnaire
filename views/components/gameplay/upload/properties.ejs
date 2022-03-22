@@ -1,0 +1,24 @@
+<script>
+    function addToLocalProp(e) {
+        if (!window.localStorage.quizProperties)
+            window.localStorage.quizProperties = JSON.stringify({});
+        const prev = {
+            ...JSON.parse(window.localStorage.quizProperties),
+            [e.id]: e.value,
+        };
+        window.localStorage.setItem("quizProperties", JSON.stringify(prev));
+    }
+</script>
+<div>
+    <label
+        >Name: <input type="text" id="name" onChange="addToLocalProp(this)"
+    /></label>
+    <label
+        >Categories:
+        <input type="text" id="category" onChange="addToLocalProp(this)"
+    /></label>
+    <label
+        >Difficulty:
+        <input type="text" id="difficulty" onChange="addToLocalProp(this)"
+    /></label>
+</div>

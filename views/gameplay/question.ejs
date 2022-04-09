@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("../components/head/head.ejs") %>
+    <body>
+        <div>
+            <header><%- include("../components/header/header.ejs") %></header>
+            <script>
+                function redirectToNext() {
+                    console.log(window.location.href.slice(0, -1));
+                    window.location.href =
+                        window.location.href.slice(0, -1) +
+                        "<%= question.number %>";
+                }
+                function answerClick(e) {
+                    if (e.innerText === "<%= question.correctAnswer %>") {
+                        console.log("yes");
+                        if (!sessionStorage.score) sessionStorage.score = 0;
+                        let scr = sessionStorage.getItem("score");
+                        sessionStorage.setItem("score", ++scr);
+                    } else {
+                        console.log("no");
+                    }
+                    redirectToNext();
+                }
+            </script>
+            <%= question.question %>
+            <button onclick="answerClick(this)">
+                <%= question.correctAnswer %>
+            </button>
+            <% question.incorrectAnswer.map(inc=>{ %>
+            <button onclick="answerClick(this)"><%= inc %></button> <% }) %>
+
+            <footer><%- include("../components/footer/footer.ejs") %></footer>
+        </div>
+    </body>
+</html>

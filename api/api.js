@@ -65,6 +65,7 @@ router.post("/modifyuser", isLoggedIn, isAdmin, async (req, res) => {
 
 router.post("/quizsubmit", isLoggedIn, async (req, res) => {
     req.body.id = uuid.v4();
+    req.body.creator = `${req.user.firstName} ${req.user.lastName}`;
     try {
         await QuizService.addQuiz(req.body);
         res.send({ msg: "OK :)" });

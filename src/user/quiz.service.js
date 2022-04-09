@@ -11,10 +11,15 @@ const getQuizzes = (Quiz) => async () => {
     return await Quiz.find();
 };
 
+const getQuizByID = (Quiz) => async (id) => {
+    return (await Quiz.find({ id }))[0];
+};
+
 module.exports = (Quiz) => {
     return {
         addQuiz: addQuiz(Quiz),
         getQuizzes: getQuizzes(Quiz),
         deleteQuiz: deleteQuiz(Quiz),
+        getQuizByID: getQuizByID(Quiz),
     };
 };

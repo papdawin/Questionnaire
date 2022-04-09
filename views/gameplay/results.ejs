@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("../components/head/head.ejs") %>
+    <body>
+        <div>
+            <header><%- include("../components/header/header.ejs") %></header>
+            <div>loading bar</div>
+            <hr />
+            <h3></h3>
+            <script>
+                const questions = "<%= quiz.questions.length %>";
+                document.querySelector(
+                    "h3"
+                ).innerHTML = `Congratulations you've got ${Math.round(
+                    (sessionStorage.score / questions) * 100
+                )}% of the questions right!`;
+            </script>
+            <footer><%- include("../components/footer/footer.ejs") %></footer>
+        </div>
+    </body>
+</html>

@@ -1,10 +1,10 @@
 <script>
     function addAnswerBox() {
         document
-            .querySelector("#incorrect")
+            .querySelector("#incorrectAnswer")
             .insertAdjacentHTML(
                 "afterend",
-                `<label>Incorrect answer: <input type="text" id="incorrect" /></label>`
+                `<label>Incorrect answer: <input type="text" id="incorrectAnswer" /></label>`
             );
     }
     function addQuestion() {
@@ -13,13 +13,13 @@
 
         const arr = JSON.parse(window.localStorage.quizQuestions);
         let incorrectArr = [];
-        document.querySelectorAll("#incorrect").forEach((tag) => {
+        document.querySelectorAll("#incorrectAnswer").forEach((tag) => {
             incorrectArr.push(tag.value);
         });
 
         const question = {
             question: document.querySelector("#question").value,
-            correct: document.querySelector("#correct").value,
+            correct: document.querySelector("#correctAnswer").value,
             incorrect: [...incorrectArr],
         };
 
@@ -32,8 +32,8 @@
 </script>
 <div>
     <label>Question: <input type="text" id="question" /></label>
-    <label>Correct answer: <input type="text" id="correct" /></label>
-    <label>Incorrect answer: <input type="text" id="incorrect" /></label>
+    <label>Correct answer: <input type="text" id="correctAnswer" /></label>
+    <label>Incorrect answer: <input type="text" id="incorrectAnswer" /></label>
     <button onclick="addAnswerBox()">Add another answer option</button>
     <button onclick="addQuestion()">Submit question</button>
 </div>

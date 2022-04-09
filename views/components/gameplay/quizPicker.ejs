@@ -1,0 +1,17 @@
+<script>
+    function redirectToQuiz() {}
+</script>
+<% quizzes.map((quiz,index) => { %>
+<div id="<%= index++ %>">
+    <a href="/quiz/<%= quiz.id %>">
+        <%= quiz.id %> <%= quiz.name %> <%= quiz.difficulty %> <%= quiz.creator
+        %> <% quiz.questions.map((question,index) => { %>
+
+        <div id="<%= index++ %>">
+            <div><%= question.question %> <%= question.correctAnswer %></div>
+        </div>
+
+        <% }) %>
+    </a>
+</div>
+<% }) %>

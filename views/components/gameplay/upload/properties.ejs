@@ -8,6 +8,22 @@
         };
         window.localStorage.setItem("quizProperties", JSON.stringify(prev));
     }
+    function submitQuiz() {
+        const quiz = JSON.parse(window.localStorage.getItem("quizProperties"));
+        quiz.questions = JSON.parse(
+            window.localStorage.getItem("quizQuestions")
+        );
+        fetch("/api/quizsubmit", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(quiz),
+        })
+            .then(() => {
+                window.localStorage.clear();
+                window.location.href = window.location.href.slice(0, -6);
+            })
+            .catch(console.log);
+    }
 </script>
 <div>
     <label
@@ -15,10 +31,11 @@
     /></label>
     <label
         >Categories:
-        <input type="text" id="category" onChange="addToLocalProp(this)"
+        <input type="text" id="categories" onChange="addToLocalProp(this)"
     /></label>
     <label
         >Difficulty:
         <input type="text" id="difficulty" onChange="addToLocalProp(this)"
     /></label>
+    <button onclick="submitQuiz()">Submit quiz</button>
 </div>

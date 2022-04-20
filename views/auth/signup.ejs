@@ -5,19 +5,20 @@
         <div>
             <header><%- include("../components/header/header.ejs") %></header>
             <div class="pageContent">
-                <form action="/api/signup" method="post">
-                    <label
-                        >First Name:<input name="firstName" type="text"
-                    /></label>
-                    <label
-                        >Last Name:<input name="lastName" type="text"
-                    /></label>
-                    <label>Email:<input type="email" name="email" /></label>
-                    <label
-                        >Password:<input type="password" name="password"
-                    /></label>
-                    <input type="submit" value="Sign up" />
-                </form>
+                <div class="signup">
+                    <form action="/api/signup" method="post">
+                        <label for="firstName">First Name:</label>
+                        <input id="firstName" name="firstName" type="text" />
+                        <label for="lastName">Last Name:</label>
+                        <input id="lastName" name="lastName" type="text" />
+                        <label for="email">Email:</label>
+                        <input id="email" type="email" name="email" />
+                        <label for="password">Password:</label>
+                        <input id="password" type="password" name="password" />
+
+                        <input type="submit" value="Sign up" />
+                    </form>
+                </div>
             </div>
             <footer><%- include("../components/footer/footer.ejs") %></footer>
         </div>

@@ -26,5 +26,6 @@ router.use(
 );
 
 router.use("/", require("./gameplay/gameplayRoutes.js"));
+router.use("/", require("./pr/prRoutes.js"));
 
 module.exports = router;

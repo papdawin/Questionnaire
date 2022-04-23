@@ -4,26 +4,22 @@
     <body>
         <div>
             <header><%- include("../components/header/header.ejs") %></header>
-            <div class="pageContent" style="display: flex; height: 90vh">
-                <div
-                    class="quizproperties"
-                    style="width: 33%; background-color: lightgreen"
-                >
-                    <%- include("../components/gameplay/upload/properties.ejs")
-                    %>
-                </div>
+            <div class="pageContent">
+                <div class="upload">
+                    <div class="quizproperties">
+                        <%-
+                        include("../components/gameplay/upload/properties.ejs")
+                        %>
+                    </div>
 
-                <div
-                    class="current"
-                    style="width: 33%; background-color: lightcoral"
-                >
-                    <%- include("../components/gameplay/upload/current.ejs") %>
-                </div>
-                <div
-                    class="added"
-                    style="width: 33%; background-color: lightcyan"
-                >
-                    <%- include("../components/gameplay/upload/added.ejs") %>
+                    <div class="current">
+                        <%- include("../components/gameplay/upload/current.ejs")
+                        %>
+                    </div>
+                    <div class="added">
+                        <%- include("../components/gameplay/upload/added.ejs")
+                        %>
+                    </div>
                 </div>
             </div>
             <footer><%- include("../components/footer/footer.ejs") %></footer>

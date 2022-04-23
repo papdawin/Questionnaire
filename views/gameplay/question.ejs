@@ -23,13 +23,15 @@
                     redirectToNext();
                 }
             </script>
+            <div class="pageContent">
+                <div class="quizProperties"></div>
             <%= question.question %>
             <button onclick="answerClick(this)">
                 <%= question.correctAnswer %>
             </button>
             <% question.incorrectAnswer.map(inc=>{ %>
             <button onclick="answerClick(this)"><%= inc %></button> <% }) %>
-
+        </div></div>
             <footer><%- include("../components/footer/footer.ejs") %></footer>
         </div>
     </body>

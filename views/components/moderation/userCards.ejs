@@ -19,15 +19,21 @@
         document.location.reload(true);
     }
 </script>
-<% users.map((usr,index) => { %>
-
-<div id="<%= index++ %>">
-    <div><%= usr.firstName %> <%= usr.lastName %></div>
-    <input
+<div class="userList">
+    <h1>Users:</h1>
+<% users.map((usr) => { %>
+<% console.log(usr)%>
+<div id="<%= usr.id %>" class="userCard">
+    <p><%= usr.firstName %> <%= usr.lastName %></p>
+    
+    <div class="admin"><p>Admin:</p><input
         type="checkbox"
         onchange="toggleAdmin('<%= usr.email %>')"
-        <% if(usr.admin){ %> checked <% } %> />
+        <% if(usr.admin){ %> checked <% } %> /></div>
+        <p>Account created on: <%= usr.lastVisited.toLocaleDateString("en-US", { weekday:
+            'long', year: 'numeric', month: 'long', day: 'numeric' }) %></p>
     <button onclick="deleteUser('<%= usr.email %>')">Delete user</button>
 </div>
 
 <% }) %>
+</div>

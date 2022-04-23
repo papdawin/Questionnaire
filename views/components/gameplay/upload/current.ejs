@@ -4,7 +4,7 @@
             .querySelector("#incorrectAnswer")
             .insertAdjacentHTML(
                 "afterend",
-                `<label>Incorrect answer: <input type="text" id="incorrectAnswer" /></label>`
+                `<label>Incorrect answer:</label><input type="text" id="incorrectAnswer" />`
             );
     }
     function addQuestion() {
@@ -31,9 +31,10 @@
     }
 </script>
 <div>
-    <label>Question: <input type="text" id="question" /></label>
-    <label>Correct answer: <input type="text" id="correctAnswer" /></label>
-    <label>Incorrect answer: <input type="text" id="incorrectAnswer" /></label>
+    <h2>Question</h2>
+    <label>Question:</label> <input type="text" id="question" />
+    <label>Correct answer:</label> <input type="text" id="correctAnswer" />
+    <label>Incorrect answer:</label> <input type="text" id="incorrectAnswer" />
     <button onclick="addAnswerBox()">Add another answer option</button>
     <button onclick="addQuestion()">Submit question</button>
 </div>

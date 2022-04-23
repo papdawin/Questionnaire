@@ -25,17 +25,15 @@
             .catch(console.log);
     }
 </script>
-<div>
-    <label
-        >Name: <input type="text" id="name" onChange="addToLocalProp(this)"
-    /></label>
-    <label
-        >Categories:
-        <input type="text" id="categories" onChange="addToLocalProp(this)"
-    /></label>
-    <label
-        >Difficulty:
-        <input type="text" id="difficulty" onChange="addToLocalProp(this)"
-    /></label>
+<div class="properties">
+    <h2>Quiz properties</h2>
+    <label>Name:</label>
+    <input type="text" id="name" onChange="addToLocalProp(this)" />
+    <label>Description:</label>
+    <input type="text" id="name" onChange="addToLocalProp(this)" />
+    <label>Categories:</label>
+    <input type="text" id="categories" onChange="addToLocalProp(this)" />
+    <label>Difficulty:</label>
+    <input type="text" id="difficulty" onChange="addToLocalProp(this)" />
     <button onclick="submitQuiz()">Submit quiz</button>
 </div>

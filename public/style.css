@@ -19,33 +19,58 @@ header nav a, footer .innerFooter a {
   text-decoration: none;
 }
 
-input {
+input, button {
   width: 400px;
+  font-size: larger;
   border-radius: 0.2rem;
   background-color: white;
   border: 1px solid lightgray;
   padding: 10px 5px;
 }
 
-input[type=submit] {
+input[type=submit], button {
   color: white;
   background-image: linear-gradient(45deg, #00DBDB, #6A63F9);
 }
 
+input[type=checkbox] {
+  width: 20px;
+}
+
+* {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
 body {
+  width: 100%;
+  height: 100%;
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  height: 100vh;
-  position: relative;
-  min-height: 100vh;
+}
+
+body > div {
+  display: -ms-grid;
+  display: grid;
+  min-height: 100%;
+  -ms-grid-rows: auto 1fr auto;
+      grid-template-rows: auto 1fr auto;
+  -ms-grid-columns: 100%;
+      grid-template-columns: 100%;
+}
+
+body > div .pageContent {
+  min-height: 80vh;
 }
 
 header {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
   background: #FDFAEE;
   border-bottom: 1px solid lightgray;
   -webkit-box-shadow: 1px 1px 10px gray;
           box-shadow: 1px 1px 10px gray;
+  z-index: 100;
 }
 
 header nav {
@@ -74,10 +99,8 @@ header nav ul li {
 }
 
 footer {
-  position: absolute;
-  bottom: 0;
   background: #E5E5E5;
-  width: 100vw;
+  width: 100%;
   height: 15vh;
 }
 
@@ -255,5 +278,242 @@ footer .innerFooter .rightFooter .footerTitle {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 15px;
+}
+
+.pageContent .quizList {
+  padding: 2em;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: auto;
+  -webkit-column-gap: 3em;
+          column-gap: 3em;
+  row-gap: 1em;
+}
+
+.pageContent .quizList .quizCard {
+  border-radius: 10px;
+  -webkit-box-shadow: 2px 2px 5px lightgray;
+          box-shadow: 2px 2px 5px lightgray;
+  position: relative;
+  display: -ms-grid;
+  display: grid;
+}
+
+.pageContent .quizList .quizCard a {
+  color: black;
+  text-decoration: none;
+  display: -ms-grid;
+  display: grid;
+  padding: 10px;
+}
+
+.pageContent .quizList .quizCard a * {
+  padding: 0;
+  margin: 0.5em 0;
+}
+
+.pageContent .quizList .quizCard a .difcreate {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: gray;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.pageContent .quizList .quizCard a h5 {
+  color: gray;
+  justify-self: flex-end;
+}
+
+.pageContent .quizList .quizCard .amod {
+  display: -ms-grid;
+  display: grid;
+  padding: 10px;
+}
+
+.pageContent .quizList .quizCard .amod * {
+  padding: 0;
+  margin: 0 0;
+  font-size: small;
+}
+
+.pageContent .quizList .quizCard .amod .desc {
+  padding: 1em;
+}
+
+.pageContent .quizList .quizCard .amod .small {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.pageContent .quizList .quizCard .amod .question {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.pageContent .quizList .quizCard .amod .question .correct {
+  color: green;
+}
+
+.pageContent .quizList .quizCard .amod .question .incorrect {
+  color: red;
+}
+
+.pageContent .quizList .quizCard .amod h6 {
+  -ms-grid-column-align: center;
+      justify-self: center;
+}
+
+.pageContent .quizList .quizCard button {
+  margin-top: auto;
+}
+
+.pageContent .userList .userCard {
+  margin: 5px;
+  padding: 5px;
+  -webkit-box-shadow: 2px 2px 5px lightgray;
+          box-shadow: 2px 2px 5px lightgray;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.pageContent .userList .userCard .admin {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.pageContent .userList .userCard button {
+  margin: auto 0;
+}
+
+.pageContent .upload {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.pageContent .upload .properties {
+  height: 80vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.pageContent .upload .current {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.pageContent .upload .current div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.pageContent .upload .added {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 412px;
+}
+
+.pageContent .upload .added h4 {
+  color: lightgreen;
+}
+
+.pageContent .upload button {
+  margin-top: 30px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.pageContent .quizProperties {
+  height: 80vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.pageContent .quizProperties .card {
+  max-width: 40vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.pageContent .quizProperties .card > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.pageContent .quizProperties .card button {
+  margin: 2em auto;
 }
 /*# sourceMappingURL=style.css.map */

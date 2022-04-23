@@ -1,17 +1,21 @@
-<script>
-    function redirectToQuiz() {}
-</script>
-<% quizzes.map((quiz,index) => { %>
-<div id="<%= index++ %>">
-    <a href="/quiz/<%= quiz.id %>">
-        <%= quiz.id %> <%= quiz.name %> <%= quiz.difficulty %> <%= quiz.creator
-        %> <% quiz.questions.map((question,index) => { %>
-
-        <div id="<%= index++ %>">
-            <div><%= question.question %> <%= question.correctAnswer %></div>
+<div class="pageContent">
+    <h1>Quizzes:</h1>
+    <div class="quizList">
+        <% quizzes.map((quiz) => { %>
+        <div id="<%= quiz.id %>" class="quizCard">
+            <a href="/quiz/<%= quiz.id %>">
+                <h2><%= quiz.name %></h2>
+                <p><%= quiz.description %></p>
+                <div class="difcreate">
+                    <small><%= quiz.difficulty %></small>
+                    <small>By: <%= quiz.creator %></small>
+                </div>
+                <h5>
+                    <%= quiz.createdOn.toLocaleDateString("en-US", { weekday:
+                    'long', year: 'numeric', month: 'long', day: 'numeric' }) %>
+                </h5>
+            </a>
         </div>
-
         <% }) %>
-    </a>
+    </div>
 </div>
-<% }) %>

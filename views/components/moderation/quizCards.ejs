@@ -10,14 +10,25 @@
         document.location.reload(true);
     }
 </script>
+<div class="quizList">
 <% quizzes.map((quiz,index) => { %>
-<div id="<%= index++ %>">
+<div id="<%= index++ %>" class="quizCard">
 
-    <div><%= quiz.id %> <%= quiz.name %> <%= quiz.difficulty %> <%= quiz.creator %>
+    <div class="amod">
+        <h6><%= quiz.id %></h6>
+        <div class="small">
+            <p><%= quiz.name %></p>
+            <p><%= quiz.difficulty %></p>
+            <p><%= quiz.creator %></p>
+        </div>
+        <p class="desc"><%= quiz.description%></p>
     <% quiz.questions.map((question,index) => { %>
-
-        <div id="<%= index++ %>">
-            <div><%= question.question %> <%= question.correctAnswer %></div>
+        <p><%= question.question %></p>
+        <div id="<%= index++ %>" class="question"> 
+                <p class="correct"><%= question.correctAnswer %></p>
+                <% question.incorrectAnswer.map(incorrect=>{ %>
+                    <p class="incorrect"><%= incorrect %></p>
+                <%})%>  
         </div>
         
         <% }) %> 
@@ -25,3 +36,4 @@
     <button onclick="deleteQuiz('<%= quiz.id %>')">Delete quiz</button>
 </div>
 <% }) %>
+</div>

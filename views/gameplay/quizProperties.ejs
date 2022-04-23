@@ -5,14 +5,26 @@
         <script>
             function redirectToQuiz() {
                 sessionStorage.setItem("score", 0);
-                window.location.href = window.location.href + "0";
+                window.location.href = window.location.href + "/0";
             }
         </script>
         <div>
             <header><%- include("../components/header/header.ejs") %></header>
-            <%= quiz.name %> <%= quiz.difficulty %> <%= quiz.creator %>
-            <button onclick="redirectToQuiz()">Play quiz</button>
+            <div class="pageContent">
+                <div class="quizProperties">
+                    <div class="card">
+                        <h1><%= quiz.name %></h1>
+                        <p><%= quiz.description %></p>
+                        <div>
+                            <p class="small">Difficulty: <%= quiz.difficulty %></p>
+                            <p class="small">By: <%= quiz.creator %></p>
+                        </div>
+                        <button onclick="redirectToQuiz()">Play quiz</button>
+                    </div>
+                </div>
+            </div>
             <footer><%- include("../components/footer/footer.ejs") %></footer>
+        </div>
         </div>
     </body>
 </html>

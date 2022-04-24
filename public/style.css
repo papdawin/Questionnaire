@@ -1,4 +1,4 @@
-header nav, header nav .innerNav {
+header nav, header nav .innerNav, .pageContent > .question, .pageContent .results {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -515,5 +515,39 @@ footer .innerFooter .rightFooter .footerTitle {
 
 .pageContent .quizProperties .card button {
   margin: 2em auto;
+}
+
+.pageContent > .question {
+  height: 80vh;
+  max-width: 840px;
+  margin: 0 auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.pageContent > .question div .answers {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (auto)[2];
+      grid-template-columns: repeat(2, auto);
+  grid-gap: 1em;
+  justify-items: center;
+}
+
+.pageContent .results {
+  height: 80vh;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.pageContent .results .progressBar .pbar {
+  margin-bottom: 3em;
+  width: 50vw;
 }
 /*# sourceMappingURL=style.css.map */

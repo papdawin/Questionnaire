@@ -4,9 +4,12 @@
     <body>
         <div>
             <header><%- include("../components/header/header.ejs") %></header>
-            <div>loading bar</div>
-            <hr />
-            <h3></h3>
+            <div class="pageContent">
+                <div class="results">
+                    <div class="progressBar"></div>
+                    <h3></h3>
+                </div>
+            </div>
             <script>
                 const questions = "<%= quiz.questions.length %>";
                 document.querySelector(
@@ -14,6 +17,11 @@
                 ).innerHTML = `Congratulations you've got ${Math.round(
                     (sessionStorage.score / questions) * 100
                 )}% of the questions right!`;
+                document.querySelector(
+                    ".progressBar"
+                ).innerHTML = `<progress class="pbar" value="${
+                    sessionStorage.score
+                }" max=${"<%= quiz.questions.length %>"}>`;
             </script>
             <footer><%- include("../components/footer/footer.ejs") %></footer>
         </div>

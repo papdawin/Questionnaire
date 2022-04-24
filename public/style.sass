@@ -2,6 +2,7 @@ $prim: #FDFAEE
 $sec: #E5E5E5
 $ter: #404040
 $quad: #B7B7B7
+$height: 80vh
 
 %center
     display: flex
@@ -238,7 +239,6 @@ footer
     .upload
         display: flex
         justify-content: space-between
-
         .properties
             height: 80vh
             display: flex
@@ -275,3 +275,24 @@ footer
                 justify-content: space-between
             button
                 margin: 2em auto
+    >.question
+        height: $height
+        max-width: 840px
+        margin: 0 auto
+        @extend %center
+        justify-content: center
+        div
+            .answers
+                display: grid
+                grid-template-columns: repeat(2, auto )
+                grid-gap: 1em
+                justify-items: center
+    .results
+        height: $height
+        @extend %center
+        flex-direction: column
+        justify-content: center
+        .progressBar
+            .pbar
+                margin-bottom: 3em
+                width: 50vw

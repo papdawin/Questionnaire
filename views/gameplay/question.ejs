@@ -24,14 +24,24 @@
                 }
             </script>
             <div class="pageContent">
-                <div class="quizProperties"></div>
-            <%= question.question %>
-            <button onclick="answerClick(this)">
-                <%= question.correctAnswer %>
-            </button>
-            <% question.incorrectAnswer.map(inc=>{ %>
-            <button onclick="answerClick(this)"><%= inc %></button> <% }) %>
-        </div></div>
+                <div class="question">
+                    <div>
+                        <h1><%= question.question %></h1>
+                        <div class="answers">
+                            <% let unshuffled = question.incorrectAnswer;
+                            unshuffled.push(question.correctAnswer); let
+                            shuffled = unshuffled .map(value => ({ value, sort:
+                            Math.random() })) .sort((a, b) => a.sort - b.sort)
+                            .map(({ value }) => value) %> <% shuffled.map(inc=>{
+                            %>
+                            <button onclick="answerClick(this)">
+                                <%= inc %>
+                            </button>
+                            <% }) %>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <footer><%- include("../components/footer/footer.ejs") %></footer>
         </div>
     </body>

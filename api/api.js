@@ -64,6 +64,7 @@ router.post("/modifyuser", isLoggedIn, isAdmin, async (req, res) => {
 });
 
 router.post("/quizsubmit", isLoggedIn, async (req, res) => {
+    console.log(req.body);
     req.body.id = uuid.v4();
     req.body.creator = `${req.user.firstName} ${req.user.lastName}`;
     try {

@@ -18,8 +18,8 @@ gameRouter.get("/", async (req, res) => {
 });
 
 gameRouter.get("/:id", async (req, res) => {
-    //console.log(req.session.score);
     const quiz = await QuizService.getQuizByID(req.params.id);
+    //console.log(quiz);
     res.render("gameplay/quizProperties.ejs", {
         user: req.user,
         quiz,

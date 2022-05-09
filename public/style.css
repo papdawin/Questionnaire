@@ -30,6 +30,7 @@ input, button {
 
 input[type=submit], button {
   color: white;
+  margin: 0.4rem;
   background-image: linear-gradient(45deg, #00DBDB, #6A63F9);
 }
 
@@ -98,10 +99,18 @@ header nav ul li {
   margin-left: 3.5em;
 }
 
+header nav ul li:hover {
+  text-shadow: 1px 1px 2px #404040;
+}
+
+header nav .toggle-button {
+  display: none;
+}
+
 footer {
   background: #E5E5E5;
   width: 100%;
-  height: 15vh;
+  height: 8,5em;
 }
 
 footer .innerFooter {
@@ -161,13 +170,20 @@ footer .innerFooter .rightFooter .outer ul {
   display: -ms-flexbox;
   display: flex;
   padding: 0;
+  list-style: none;
 }
 
 footer .innerFooter .rightFooter .outer ul li {
   padding: 3px;
 }
 
-footer .innerFooter .rightFooter ul {
+footer .innerFooter .rightFooter .group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+footer .innerFooter .rightFooter .group ul {
   margin: 0;
   list-style: none;
 }
@@ -179,6 +195,7 @@ footer .innerFooter .rightFooter .footerTitle {
 .pageContent {
   width: 65vw;
   margin: auto;
+  min-height: 80vh;
 }
 
 .pageContent .index .upper {
@@ -190,6 +207,7 @@ footer .innerFooter .rightFooter .footerTitle {
 
 .pageContent .index .upper img {
   width: 400px;
+  height: 400px;
   margin: 25px;
   -webkit-box-shadow: 1px 1px 10px gray;
           box-shadow: 1px 1px 10px gray;
@@ -240,6 +258,10 @@ footer .innerFooter .rightFooter .footerTitle {
   background-image: url("3.png");
 }
 
+.pageContent .impressum {
+  height: 80vh;
+}
+
 .pageContent .impressum h2 {
   padding: 1em;
 }
@@ -253,10 +275,12 @@ footer .innerFooter .rightFooter .footerTitle {
 }
 
 .pageContent .about {
+  height: 80vh;
   padding: 2em;
 }
 
 .pageContent .signin, .pageContent .signup {
+  height: 80vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

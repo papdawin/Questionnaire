@@ -1,5 +1,8 @@
 const addQuiz = (Quiz) => (inp) => {
     const quiz = new Quiz(inp);
+    quiz.questions.map((item, index) => {
+        item.number = index;
+    });
     return quiz.save();
 };
 

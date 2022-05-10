@@ -30,6 +30,15 @@ const toggleAdminByEmail = (User) => async (email) => {
         return await User.updateOne({ email }, { $set: { admin: false } });
     else return await User.updateOne({ email }, { $set: { admin: true } });
 };
+const addScoreToUser = (User) => async (uid, qid, score, max) => {
+    let scr = (await User.findOne({ id: uid })).quizScores;
+    console.log(scr);
+    scr.push({ id: quid, score, max });
+    console.log("ASD");
+    console.log(scr);
+    //User.updateOne({ email }, { $set: { admin: false } });
+    //return await usr.save();
+};
 
 module.exports = (User) => {
     return {
@@ -38,5 +47,6 @@ module.exports = (User) => {
         getUserByEmail: getUserByEmail(User),
         deleteUserByEmail: deleteUserByEmail(User),
         toggleAdminByEmail: toggleAdminByEmail(User),
+        addScoreToUser: addScoreToUser(User),
     };
 };

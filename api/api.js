@@ -64,12 +64,11 @@ router.post("/modifyuser", isLoggedIn, isAdmin, async (req, res) => {
 });
 
 router.post("/quizsubmit", isLoggedIn, async (req, res) => {
-    console.log(req.body);
     req.body.id = uuid.v4();
     req.body.creator = `${req.user.firstName} ${req.user.lastName}`;
     try {
         await QuizService.addQuiz(req.body);
-        res.send({ msg: "OK :)" });
+        res.send({ msg: "OK :)", quizID: req.body.id });
     } catch (error) {
         res.send({ msg: error });
     }
@@ -78,10 +77,24 @@ router.post("/quizsubmit", isLoggedIn, async (req, res) => {
 router.post("/deletequiz", async (req, res) => {
     try {
         await QuizService.deleteQuiz(req.body.id);
-        res.send({ msg: "OK :)" });
+        res.send({ msg: "OK :)", quizID: req.body.id });
     } catch (error) {
         res.send({ msg: error });
     }
 });
+
+// router.post("/storeattempt", async (req, res) => {
+//     try {
+//         await UserService.addScoreToUser(
+//             req.user.id,
+//             req.body.id,
+//             req.body.score,
+//             req.body.max
+//         );
+//         res.send({ msg: "OK :)" });
+//     } catch (error) {
+//         res.send({ msg: error });
+//     }
+// });
 
 module.exports = router;

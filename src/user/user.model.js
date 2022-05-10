@@ -10,6 +10,7 @@ const userSchema = new Schema({
     password: String,
     admin: { type: Boolean, default: false },
     lastVisited: { type: Date, default: new Date() },
+    quizScores: [{ id: String, score: Number, max: Number }],
 });
 
 module.exports = mongoose.model("user", userSchema, "user");

@@ -4,7 +4,7 @@ import { Container, Navbar } from "react-bootstrap";
 import HeaderPicker from "./Navigation/HeaderPicker";
 
 export default function Navigation() {
-	let user = "asd";
+	let user ;
 	return (
 		<Navbar
 			sticky="top"
